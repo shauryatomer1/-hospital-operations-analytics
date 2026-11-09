@@ -1,0 +1,47 @@
+table DimDepartments
+
+	column DepartmentID
+		dataType: string
+		isKey
+		isHidden
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+	column DepartmentName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+	column DepartmentCategory
+		dataType: string
+		summarizeBy: none
+		sourceColumn: DepartmentCategory
+
+	column DepartmentCapacity
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: DepartmentCapacity
+
+	column StaffedBeds
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: StaffedBeds
+
+	column HasInpatientBeds
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: HasInpatientBeds
+
+	partition DimDepartments = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "DimDepartments.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"DepartmentID", type text}, {"DepartmentName", type text}, {"DepartmentCategory", type text}, {"DepartmentCapacity", Int64.Type}, {"StaffedBeds", Int64.Type}, {"HasInpatientBeds", type logical}}, "en-US")
+				in
+				    Typed

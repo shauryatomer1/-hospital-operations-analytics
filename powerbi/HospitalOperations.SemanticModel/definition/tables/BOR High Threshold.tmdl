@@ -1,0 +1,11 @@
+table 'BOR High Threshold'
+
+	column 'BOR High Threshold'
+		dataType: double
+		formatString: 0%
+		summarizeBy: none
+		sourceColumn: [BOR High Threshold]
+
+	partition 'BOR High Threshold' = calculated
+		mode: import
+		source = SELECTCOLUMNS ( GENERATESERIES ( 0.5, 1, 0.01 ), "BOR High Threshold", [Value] )

@@ -1,0 +1,15 @@
+table,rule,rows_affected,action
+patients,trim leading/trailing whitespace,126,str.strip() on all columns
+admissions,trim leading/trailing whitespace,0,str.strip() on all columns
+departments,trim leading/trailing whitespace,0,str.strip() on all columns
+doctors,trim leading/trailing whitespace,0,str.strip() on all columns
+beds,trim leading/trailing whitespace,0,str.strip() on all columns
+emergency_visits,trim leading/trailing whitespace,0,str.strip() on all columns
+doctor_activity,trim leading/trailing whitespace,0,str.strip() on all columns
+readmissions,trim leading/trailing whitespace,0,str.strip() on all columns
+patients,standardise gender codes to Male/Female/Other,403,mapped M/F/male/FEMALE etc.
+patients,standardise city casing,144,str.title()
+doctor_activity,remove exact duplicate rows,8,drop_duplicates()
+emergency_visits,quarantine negative waiting time,6,moved to rejected_records.csv; true time unknown
+admissions,swap reversed admission/discharge dates,4,dates swapped (reversed entry); bed-overlap re-validated afterwards
+admissions,fill missing diagnosis_category,15,set to 'Unspecified' (kept; excluded from diagnosis analysis)

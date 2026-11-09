@@ -1,0 +1,35 @@
+{
+  "name": "Hospital Operations - Blue/Teal Light",
+  "dataColors": ["#1F5FA8", "#1A9E9A", "#7FA8D1", "#7CCBC7", "#B8C2CC", "#51606F", "#E6A117", "#C0392B"],
+  "background": "#FFFFFF",
+  "foreground": "#1B2A3A",
+  "tableAccent": "#1F5FA8",
+  "good": "#2E8B57",
+  "neutral": "#E6A117",
+  "bad": "#C0392B",
+  "maximum": "#1F5FA8",
+  "center": "#E6E9ED",
+  "minimum": "#DCE8F5",
+  "textClasses": {
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#51606F" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 26, "color": "#1B2A3A" },
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#1B2A3A" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 11, "color": "#1B2A3A" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [{ "show": true, "fontColor": { "solid": { "color": "#1B2A3A" } }, "fontSize": 12, "alignment": "left" }],
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#DDE4EA" } }, "radius": 6 }],
+        "categoryAxis": [{ "labelColor": { "solid": { "color": "#51606F" } }, "gridlineShow": false }],
+        "valueAxis": [{ "labelColor": { "solid": { "color": "#51606F" } }, "gridlineColor": { "solid": { "color": "#EEF2F5" } } }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F4F7FA" } }, "transparency": 0 }]
+      }
+    }
+  }
+}

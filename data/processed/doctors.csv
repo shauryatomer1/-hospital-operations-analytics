@@ -1,0 +1,59 @@
+doctor_id,doctor_name,department_id,specialization,employment_type,shift
+DR001,Dr. Arjun More,D01,Emergency Medicine,Full-Time,Evening
+DR002,Dr. Aishwarya Iyer,D01,Trauma Care,Full-Time,Morning
+DR003,Dr. Anjali Gokhale,D01,Emergency Medicine,Full-Time,Night
+DR004,Dr. Varun Joshi,D01,Trauma Care,Full-Time,Night
+DR005,Dr. Ananya Kapoor,D01,Emergency Medicine,Full-Time,Morning
+DR006,Dr. Neha Bhide,D01,Trauma Care,Part-Time,Evening
+DR007,Dr. Anjali Gupta,D01,Emergency Medicine,Visiting Consultant,Morning
+DR008,Dr. Tanvi More,D01,Trauma Care,Full-Time,Morning
+DR009,Dr. Ananya Patil,D01,Emergency Medicine,Part-Time,Evening
+DR010,Dr. Divya Shah,D01,Trauma Care,Full-Time,Evening
+DR011,Dr. Radhika Iyer,D02,Internal Medicine,Full-Time,Rotational
+DR012,Dr. Harsh Chatterjee,D02,Infectious Diseases,Full-Time,Rotational
+DR013,Dr. Shruti Apte,D02,Endocrinology,Full-Time,Night
+DR014,Dr. Deepak Nair,D02,Internal Medicine,Full-Time,Rotational
+DR015,Dr. Nandini Sharma,D02,Infectious Diseases,Part-Time,Evening
+DR016,Dr. Meera Menon,D02,Endocrinology,Full-Time,Night
+DR017,Dr. Vivaan Patil,D02,Internal Medicine,Full-Time,Evening
+DR018,Dr. Meera Bhide,D03,Interventional Cardiology,Full-Time,Rotational
+DR019,Dr. Neha Banerjee,D03,Clinical Cardiology,Full-Time,Night
+DR020,Dr. Suresh Gupta,D03,Interventional Cardiology,Full-Time,Evening
+DR021,Dr. Mamta Bhide,D03,Clinical Cardiology,Full-Time,Night
+DR022,Dr. Aditya Ranade,D03,Interventional Cardiology,Part-Time,Morning
+DR023,Dr. Priya Gokhale,D03,Clinical Cardiology,Part-Time,Morning
+DR024,Dr. Amit Rao,D04,Joint Replacement,Full-Time,Morning
+DR025,Dr. Shruti Pawar,D04,Trauma & Fracture Care,Full-Time,Rotational
+DR026,Dr. Ishaan Sathe,D04,Joint Replacement,Part-Time,Morning
+DR027,Dr. Ishaan Mehta,D04,Trauma & Fracture Care,Full-Time,Rotational
+DR028,Dr. Kavita Sathe,D04,Joint Replacement,Full-Time,Morning
+DR029,Dr. Rajesh Ranade,D05,Laparoscopic Surgery,Full-Time,Evening
+DR030,Dr. Vikram Menon,D05,GI Surgery,Full-Time,Rotational
+DR031,Dr. Divya Menon,D05,General Surgery,Full-Time,Evening
+DR032,Dr. Rekha Jadhav,D05,Laparoscopic Surgery,Full-Time,Morning
+DR033,Dr. Ananya Joshi,D05,GI Surgery,Visiting Consultant,Morning
+DR034,Dr. Shruti Naidu,D05,General Surgery,Part-Time,Morning
+DR035,Dr. Arjun Pillai,D06,General Pediatrics,Full-Time,Rotational
+DR036,Dr. Amit Joshi,D06,Neonatology,Full-Time,Evening
+DR037,Dr. Isha Deshmukh,D06,General Pediatrics,Full-Time,Rotational
+DR038,Dr. Ishaan Tilak,D06,Neonatology,Full-Time,Evening
+DR039,Dr. Anil Sharma,D06,General Pediatrics,Visiting Consultant,Morning
+DR040,Dr. Harsh Kulkarni,D07,Obstetrics,Full-Time,Morning
+DR041,Dr. Karan Sathe,D07,Gynecology,Full-Time,Rotational
+DR042,Dr. Varun Sathe,D07,Obstetrics,Full-Time,Evening
+DR043,Dr. Rajesh Apte,D07,Gynecology,Visiting Consultant,Evening
+DR044,Dr. Kabir Rao,D07,Obstetrics,Part-Time,Morning
+DR045,Dr. Divya Pawar,D08,Stroke Neurology,Full-Time,Morning
+DR046,Dr. Rohan Tilak,D08,General Neurology,Full-Time,Morning
+DR047,Dr. Ananya Gupta,D08,Stroke Neurology,Part-Time,Morning
+DR048,Dr. Nandini Iyer,D09,Medical Oncology,Full-Time,Rotational
+DR049,Dr. Rekha Menon,D09,Surgical Oncology,Full-Time,Morning
+DR050,Dr. Ishaan Reddy,D09,Medical Oncology,Visiting Consultant,Morning
+DR051,Dr. Arjun Pawar,D10,Pulmonary Medicine,Full-Time,Morning
+DR052,Dr. Tanvi Bhatt,D10,Critical Respiratory Care,Full-Time,Morning
+DR053,Dr. Amit Gupta,D10,Pulmonary Medicine,Full-Time,Rotational
+DR054,Dr. Divya Sharma,D11,Intensive Care Medicine,Full-Time,Night
+DR055,Dr. Aditya Apte,D11,Anesthesiology & Critical Care,Full-Time,Rotational
+DR056,Dr. Rahul Pawar,D11,Intensive Care Medicine,Full-Time,Night
+DR057,Dr. Mamta More,D11,Anesthesiology & Critical Care,Visiting Consultant,Morning
+DR058,Dr. Priya Ranade,D11,Intensive Care Medicine,Full-Time,Morning

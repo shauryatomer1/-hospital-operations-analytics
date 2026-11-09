@@ -1,0 +1,70 @@
+relationship 4f4ce4d18ae4ddfe4deb
+	fromColumn: FactAdmissions.AdmissionDate
+	toColumn: DimDate.Date
+
+relationship c9ced8176dc2faec1a5c
+	fromColumn: FactAdmissions.DischargeDate
+	toColumn: DimDate.Date
+	isActive: false
+
+relationship d7c714d7602a31829391
+	fromColumn: FactEmergencyVisits.ArrivalDate
+	toColumn: DimDate.Date
+
+relationship 41bf51a63a8c601f0996
+	fromColumn: FactDoctorActivity.ActivityDate
+	toColumn: DimDate.Date
+
+relationship 8533d0f68f53424dfc3a
+	fromColumn: FactReadmissions.ReadmitAdmissionDate
+	toColumn: DimDate.Date
+
+relationship d776028315844e577b19
+	fromColumn: FactReadmissions.IndexDischargeDate
+	toColumn: DimDate.Date
+	isActive: false
+
+relationship c19b0721057238810d97
+	fromColumn: FactAdmissions.DepartmentID
+	toColumn: DimDepartments.DepartmentID
+
+relationship 2e251dcb1603b4266c75
+	fromColumn: FactEmergencyVisits.DepartmentID
+	toColumn: DimDepartments.DepartmentID
+
+relationship 627b6458ca19b54e0e83
+	fromColumn: FactDoctorActivity.DepartmentID
+	toColumn: DimDepartments.DepartmentID
+
+relationship 351ab12c057df36f74a4
+	fromColumn: FactReadmissions.IndexDepartmentID
+	toColumn: DimDepartments.DepartmentID
+
+relationship 182cf885179229150e4d
+	fromColumn: FactReadmissions.ReadmitDepartmentID
+	toColumn: DimDepartments.DepartmentID
+	isActive: false
+
+relationship 26424847ad89673f6c85
+	fromColumn: DimBeds.DepartmentID
+	toColumn: DimDepartments.DepartmentID
+
+relationship 2ec4334660d7e5159142
+	fromColumn: FactAdmissions.DoctorID
+	toColumn: DimDoctors.DoctorID
+
+relationship a75140be51bfb456cf99
+	fromColumn: FactDoctorActivity.DoctorID
+	toColumn: DimDoctors.DoctorID
+
+relationship 6bf659915e70fed89b6c
+	fromColumn: FactAdmissions.PatientID
+	toColumn: DimPatients.PatientID
+
+relationship 75c984295da04ebf70a7
+	fromColumn: FactEmergencyVisits.PatientID
+	toColumn: DimPatients.PatientID
+
+relationship e7e6d341c005bcda9031
+	fromColumn: FactReadmissions.PatientID
+	toColumn: DimPatients.PatientID

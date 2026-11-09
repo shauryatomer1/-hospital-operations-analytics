@@ -1,0 +1,63 @@
+index_department,readmitted_to,readmissions_30d,pct_of_index_dept_readmissions
+Cardiology,Cardiology,271,76.8
+Cardiology,General Medicine,37,10.5
+Cardiology,Critical Care (ICU),31,8.8
+Cardiology,Pulmonology,5,1.4
+Cardiology,Neurology,3,0.8
+Cardiology,Oncology,3,0.8
+Cardiology,General Surgery,2,0.6
+Cardiology,Obstetrics & Gynecology,1,0.3
+Critical Care (ICU),Critical Care (ICU),35,76.1
+Critical Care (ICU),General Medicine,8,17.4
+Critical Care (ICU),Neurology,2,4.3
+Critical Care (ICU),Oncology,1,2.2
+General Medicine,General Medicine,191,75.5
+General Medicine,Critical Care (ICU),44,17.4
+General Medicine,Pulmonology,5,2.0
+General Medicine,Oncology,4,1.6
+General Medicine,Neurology,3,1.2
+General Medicine,Cardiology,2,0.8
+General Medicine,Orthopedics,2,0.8
+General Medicine,Obstetrics & Gynecology,1,0.4
+General Medicine,General Surgery,1,0.4
+General Surgery,General Surgery,81,73.0
+General Surgery,General Medicine,19,17.1
+General Surgery,Critical Care (ICU),6,5.4
+General Surgery,Cardiology,2,1.8
+General Surgery,Neurology,2,1.8
+General Surgery,Orthopedics,1,0.9
+Neurology,Neurology,47,63.5
+Neurology,Critical Care (ICU),12,16.2
+Neurology,General Medicine,10,13.5
+Neurology,Cardiology,2,2.7
+Neurology,Obstetrics & Gynecology,1,1.4
+Neurology,Pediatrics,1,1.4
+Neurology,Pulmonology,1,1.4
+Obstetrics & Gynecology,Obstetrics & Gynecology,45,73.8
+Obstetrics & Gynecology,Critical Care (ICU),6,9.8
+Obstetrics & Gynecology,General Medicine,6,9.8
+Obstetrics & Gynecology,General Surgery,2,3.3
+Obstetrics & Gynecology,Cardiology,1,1.6
+Obstetrics & Gynecology,Pulmonology,1,1.6
+Oncology,Oncology,79,76.7
+Oncology,General Medicine,14,13.6
+Oncology,Critical Care (ICU),7,6.8
+Oncology,Cardiology,3,2.9
+Orthopedics,Orthopedics,34,73.9
+Orthopedics,General Medicine,10,21.7
+Orthopedics,Cardiology,1,2.2
+Orthopedics,Pediatrics,1,2.2
+Pediatrics,Pediatrics,75,79.8
+Pediatrics,General Medicine,9,9.6
+Pediatrics,Critical Care (ICU),8,8.5
+Pediatrics,General Surgery,1,1.1
+Pediatrics,Pulmonology,1,1.1
+Pulmonology,Pulmonology,112,78.3
+Pulmonology,General Medicine,12,8.4
+Pulmonology,Critical Care (ICU),7,4.9
+Pulmonology,Cardiology,6,4.2
+Pulmonology,Pediatrics,2,1.4
+Pulmonology,Neurology,1,0.7
+Pulmonology,Oncology,1,0.7
+Pulmonology,Orthopedics,1,0.7
+Pulmonology,General Surgery,1,0.7

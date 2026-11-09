@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "972e594f7edc12819228",
+  "position": {
+    "x": 16,
+    "y": 222,
+    "width": 408,
+    "height": 230,
+    "z": 1200,
+    "tabOrder": 1200
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactEmergencyVisits"
+                    }
+                  },
+                  "Property": "ArrivalHour"
+                }
+              },
+              "queryRef": "FactEmergencyVisits.ArrivalHour",
+              "nativeQueryRef": "ArrivalHour",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "ED Visits"
+                }
+              },
+              "queryRef": "_Measures.ED Visits",
+              "nativeQueryRef": "ED Visits",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arrivals by hour'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

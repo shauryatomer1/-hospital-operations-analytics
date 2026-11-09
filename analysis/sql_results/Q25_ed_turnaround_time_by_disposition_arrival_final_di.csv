@@ -1,0 +1,8 @@
+disposition_type,visits,avg_turnaround_min,median_turnaround_min,p90_turnaround_min
+Discharged Home,18905,171,155,269
+Admitted,9791,666,335,2099
+Referred for Outpatient Follow-up,3927,167,153,265
+Transferred,1187,273,247,453
+Left Against Medical Advice,990,181,167,280
+Left Without Being Seen,792,92,77,161
+Deceased,87,200,180,331

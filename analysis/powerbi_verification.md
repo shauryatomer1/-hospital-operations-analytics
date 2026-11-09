@@ -1,0 +1,72 @@
+﻿# Power BI model verification
+
+Measures evaluated in the **real Power BI Desktop engine** (Analysis Services, port 63288) with the report-level filter `DimDate[InReportingWindow] = TRUE` and compared with `analysis/kpi_checkpoints.csv` (SQL results).
+
+**Result: 64 PASS / 0 FAIL** (tolerance 0.00005, relative).
+
+| Scope | KPI | DAX (Power BI) | SQL checkpoint | Match |
+|---|---|---:|---:|:--:|
+| All (2023-2025) | Total Admissions | 15865 | 15865 | PASS |
+| All (2023-2025) | Total Unique Patients | 12311 | 12311 | PASS |
+| All (2023-2025) | Total Discharges | 15843 | 15843 | PASS |
+| All (2023-2025) | ALOS (days) | 4.983905 | 4.983905 | PASS |
+| All (2023-2025) | Bed Occupancy Rate | 0.706893 | 0.706893 | PASS |
+| All (2023-2025) | Occupied Bed-Days | 79025 | 79025 | PASS |
+| All (2023-2025) | Staffed Bed-Days | 111792 | 111792 | PASS |
+| All (2023-2025) | Avg ED Wait (min) | 50.810222 | 50.810222 | PASS |
+| All (2023-2025) | Median ED Wait (min) | 41.2 | 41.2 | PASS |
+| All (2023-2025) | ED Turnaround (min) | 308.194076 | 308.194076 | PASS |
+| All (2023-2025) | 30-Day Readmission Rate | 0.08625 | 0.08625 | PASS |
+| All (2023-2025) | Eligible Discharges | 14655 | 14655 | PASS |
+| All (2023-2025) | Doctor Utilization | 0.794713 | 0.794713 | PASS |
+| All (2023-2025) | Avg Daily Admissions | 14.475365 | 14.475365 | PASS |
+| All (2023-2025) | Emergency Admission % | 0.617271 | 0.617271 | PASS |
+| All (2023-2025) | Patients per Doctor | 212.258621 | 212.258621 | PASS |
+| 2023 | Total Admissions | 5031 | 5031 | PASS |
+| 2023 | Total Unique Patients | 4139 | 4139 | PASS |
+| 2023 | Total Discharges | 5022 | 5022 | PASS |
+| 2023 | ALOS (days) | 4.982676 | 4.982676 | PASS |
+| 2023 | Bed Occupancy Rate | 0.673597 | 0.673597 | PASS |
+| 2023 | Occupied Bed-Days | 25078 | 25078 | PASS |
+| 2023 | Staffed Bed-Days | 37230 | 37230 | PASS |
+| 2023 | Avg ED Wait (min) | 49.692568 | 49.692567 | PASS |
+| 2023 | Median ED Wait (min) | 40.30835 | 40.308333 | PASS |
+| 2023 | ED Turnaround (min) | 269.840644 | 269.840644 | PASS |
+| 2023 | 30-Day Readmission Rate | 0.090378 | 0.090378 | PASS |
+| 2023 | Eligible Discharges | 4791 | 4791 | PASS |
+| 2023 | Doctor Utilization | 0.791194 | 0.791194 | PASS |
+| 2023 | Avg Daily Admissions | 13.783562 | 13.783562 | PASS |
+| 2023 | Emergency Admission % | 0.612602 | 0.612602 | PASS |
+| 2023 | Patients per Doctor | 71.362069 | 71.362069 | PASS |
+| 2024 | Total Admissions | 5365 | 5365 | PASS |
+| 2024 | Total Unique Patients | 4595 | 4595 | PASS |
+| 2024 | Total Discharges | 5366 | 5366 | PASS |
+| 2024 | ALOS (days) | 4.896198 | 4.896198 | PASS |
+| 2024 | Bed Occupancy Rate | 0.703257 | 0.703257 | PASS |
+| 2024 | Occupied Bed-Days | 26254 | 26254 | PASS |
+| 2024 | Staffed Bed-Days | 37332 | 37332 | PASS |
+| 2024 | Avg ED Wait (min) | 53.047705 | 53.047704 | PASS |
+| 2024 | Median ED Wait (min) | 43.14165 | 43.141667 | PASS |
+| 2024 | ED Turnaround (min) | 309.405413 | 309.405413 | PASS |
+| 2024 | 30-Day Readmission Rate | 0.080575 | 0.080575 | PASS |
+| 2024 | Eligible Discharges | 5076 | 5076 | PASS |
+| 2024 | Doctor Utilization | 0.794348 | 0.794348 | PASS |
+| 2024 | Avg Daily Admissions | 14.65847 | 14.65847 | PASS |
+| 2024 | Emergency Admission % | 0.618267 | 0.618267 | PASS |
+| 2024 | Patients per Doctor | 79.224138 | 79.224138 | PASS |
+| 2025 | Total Admissions | 5469 | 5469 | PASS |
+| 2025 | Total Unique Patients | 4727 | 4727 | PASS |
+| 2025 | Total Discharges | 5455 | 5455 | PASS |
+| 2025 | ALOS (days) | 5.071311 | 5.071311 | PASS |
+| 2025 | Bed Occupancy Rate | 0.743836 | 0.743836 | PASS |
+| 2025 | Occupied Bed-Days | 27693 | 27693 | PASS |
+| 2025 | Staffed Bed-Days | 37230 | 37230 | PASS |
+| 2025 | Avg ED Wait (min) | 49.674394 | 49.674394 | PASS |
+| 2025 | Median ED Wait (min) | 40.25 | 40.25 | PASS |
+| 2025 | ED Turnaround (min) | 341.138693 | 341.138692 | PASS |
+| 2025 | 30-Day Readmission Rate | 0.088137 | 0.088137 | PASS |
+| 2025 | Eligible Discharges | 4788 | 4788 | PASS |
+| 2025 | Doctor Utilization | 0.798601 | 0.798601 | PASS |
+| 2025 | Avg Daily Admissions | 14.983562 | 14.983562 | PASS |
+| 2025 | Emergency Admission % | 0.620589 | 0.620589 | PASS |
+| 2025 | Patients per Doctor | 81.5 | 81.5 | PASS |

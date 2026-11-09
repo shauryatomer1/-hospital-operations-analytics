@@ -1,0 +1,7 @@
+emergency_visit_id,patient_id,arrival_datetime,triage_level,consultation_datetime,disposition_datetime,disposition_type,department_id,admission_id,reject_reason,source_table
+ED003904,P001314,2023-05-12 08:00:34,4,2023-05-12 07:53:34,2023-05-12 10:04:50,Discharged Home,D07,,consultation_datetime earlier than arrival_datetime (unrecoverable timestamp error),emergency_visits
+ED012714,P001263,2024-02-17 05:10:53,3,2024-02-17 04:36:53,2024-02-17 08:09:16,Discharged Home,D10,,consultation_datetime earlier than arrival_datetime (unrecoverable timestamp error),emergency_visits
+ED018530,P005476,2024-08-17 18:31:21,3,2024-08-17 18:12:21,2024-08-17 20:57:20,Discharged Home,D06,,consultation_datetime earlier than arrival_datetime (unrecoverable timestamp error),emergency_visits
+ED022018,P017390,2024-11-26 10:28:38,2,2024-11-26 09:29:38,2024-11-26 12:47:46,Discharged Home,D06,,consultation_datetime earlier than arrival_datetime (unrecoverable timestamp error),emergency_visits
+ED023205,P009528,2025-01-02 02:09:17,3,2025-01-02 01:56:17,2025-01-02 05:52:28,Discharged Home,D02,,consultation_datetime earlier than arrival_datetime (unrecoverable timestamp error),emergency_visits
+ED030684,P023514,2025-08-09 09:58:08,3,2025-08-09 09:30:08,2025-08-09 12:34:35,Discharged Home,D01,,consultation_datetime earlier than arrival_datetime (unrecoverable timestamp error),emergency_visits

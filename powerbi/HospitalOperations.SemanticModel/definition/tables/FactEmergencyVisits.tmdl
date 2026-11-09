@@ -1,0 +1,132 @@
+table FactEmergencyVisits
+
+	column EmergencyVisitID
+		dataType: string
+		isKey
+		isHidden
+		summarizeBy: none
+		sourceColumn: EmergencyVisitID
+
+	column PatientID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: PatientID
+
+	column ArrivalDateTime
+		dataType: dateTime
+		formatString: dd-mmm-yyyy hh:nn
+		summarizeBy: none
+		sourceColumn: ArrivalDateTime
+
+	column ArrivalDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		summarizeBy: none
+		sourceColumn: ArrivalDate
+
+	column ArrivalHour
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: ArrivalHour
+
+	column TriageLevel
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: TriageLevel
+
+	column TriageLabel
+		dataType: string
+		summarizeBy: none
+		sourceColumn: TriageLabel
+
+	column TargetWaitMin
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: TargetWaitMin
+
+	column ConsultationDateTime
+		dataType: dateTime
+		formatString: dd-mmm-yyyy hh:nn
+		isHidden
+		summarizeBy: none
+		sourceColumn: ConsultationDateTime
+
+	column DispositionDateTime
+		dataType: dateTime
+		formatString: dd-mmm-yyyy hh:nn
+		isHidden
+		summarizeBy: none
+		sourceColumn: DispositionDateTime
+
+	column DispositionType
+		dataType: string
+		summarizeBy: none
+		sourceColumn: DispositionType
+
+	column DepartmentID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+	column AdmissionID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: AdmissionID
+
+	column WaitMinutes
+		dataType: double
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: WaitMinutes
+
+	column TurnaroundMinutes
+		dataType: double
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: TurnaroundMinutes
+
+	column ConsultToDispositionMinutes
+		dataType: double
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: ConsultToDispositionMinutes
+
+	column IsLWBS
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: IsLWBS
+
+	column IsAdmitted
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: IsAdmitted
+
+	column MetWaitTarget
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: MetWaitTarget
+
+	column InReportingWindow
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: InReportingWindow
+
+	partition FactEmergencyVisits = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "FactEmergencyVisits.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"EmergencyVisitID", type text}, {"PatientID", type text}, {"ArrivalDateTime", type datetime}, {"ArrivalDate", type date}, {"ArrivalHour", Int64.Type}, {"TriageLevel", Int64.Type}, {"TriageLabel", type text}, {"TargetWaitMin", Int64.Type}, {"ConsultationDateTime", type datetime}, {"DispositionDateTime", type datetime}, {"DispositionType", type text}, {"DepartmentID", type text}, {"AdmissionID", type text}, {"WaitMinutes", type number}, {"TurnaroundMinutes", type number}, {"ConsultToDispositionMinutes", type number}, {"IsLWBS", type logical}, {"IsAdmitted", type logical}, {"MetWaitTarget", Int64.Type}, {"InReportingWindow", type logical}}, "en-US")
+				in
+				    Typed

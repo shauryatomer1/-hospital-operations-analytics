@@ -1,0 +1,11 @@
+department_name,total_beds,staffed_beds,occupied_now,available_now,under_maintenance,closed
+General Medicine,16,16,15,0,1,0
+General Surgery,14,14,8,5,1,0
+Orthopedics,12,11,6,5,0,1
+Cardiology,12,12,9,3,0,0
+Pediatrics,10,10,6,3,1,0
+Obstetrics & Gynecology,10,10,10,0,0,0
+Oncology,8,7,2,5,0,1
+Neurology,8,7,4,3,0,1
+Critical Care (ICU),8,8,8,0,0,0
+Pulmonology,8,7,7,0,0,1

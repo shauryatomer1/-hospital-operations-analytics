@@ -1,0 +1,11 @@
+department_name,occupied_bed_days,staffed_bed_days,bed_occupancy_rate,pct_days_high_or_critical,average_band
+General Medicine,15103,17536,0.8613,64.1,High
+Cardiology,11015,13152,0.8375,55.5,Normal
+Critical Care (ICU),7316,8768,0.8344,63.0,Normal
+Pulmonology,6300,7672,0.8212,67.2,Normal
+Neurology,5646,7672,0.7359,47.1,Normal
+Orthopedics,7873,12056,0.6530,20.2,Normal
+General Surgery,9296,15344,0.6058,16.7,Normal
+Oncology,4566,7672,0.5952,25.5,Under-utilised
+Obstetrics & Gynecology,6179,10960,0.5638,11.7,Under-utilised
+Pediatrics,5731,10960,0.5229,10.9,Under-utilised

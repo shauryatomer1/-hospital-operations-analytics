@@ -1,0 +1,21 @@
+department_name,year_month,admissions,dept_monthly_mean,z_score
+Oncology,2024-08,35,22.8,3.10
+Pediatrics,2024-08,78,50.9,2.88
+General Surgery,2024-04,85,66.3,2.26
+Critical Care (ICU),2025-08,38,29.3,2.03
+Cardiology,2024-03,78,63.1,1.98
+Pediatrics,2025-09,69,50.9,1.92
+Cardiology,2024-02,77,63.1,1.85
+Cardiology,2025-04,77,63.1,1.85
+Orthopedics,2023-01,45,34.9,1.84
+Oncology,2024-04,30,22.8,1.83
+Oncology,2024-01,30,22.8,1.83
+Neurology,2025-08,30,22.6,1.82
+Neurology,2025-09,30,22.6,1.82
+Critical Care (ICU),2025-01,37,29.3,1.80
+Pulmonology,2025-08,36,27.3,1.78
+General Medicine,2024-08,86,71.7,1.77
+Pediatrics,2025-08,66,50.9,1.60
+Cardiology,2025-12,75,63.1,1.58
+Critical Care (ICU),2024-10,36,29.3,1.57
+Critical Care (ICU),2024-09,36,29.3,1.57

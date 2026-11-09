@@ -1,0 +1,128 @@
+table DimDate
+
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		isKey
+		summarizeBy: none
+		sourceColumn: Date
+
+	column DateKey
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: DateKey
+
+	column Year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Year
+
+	column Quarter
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	column QuarterLabel
+		dataType: string
+		summarizeBy: none
+		sourceColumn: QuarterLabel
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: MonthNumber
+
+	column MonthName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: MonthName
+		sortByColumn: MonthNumber
+
+	column MonthShort
+		dataType: string
+		summarizeBy: none
+		sourceColumn: MonthShort
+		sortByColumn: MonthNumber
+
+	column YearMonth
+		dataType: string
+		summarizeBy: none
+		sourceColumn: YearMonth
+		sortByColumn: YearMonthSort
+
+	column YearMonthSort
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: YearMonthSort
+
+	column MonthStart
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		isHidden
+		summarizeBy: none
+		sourceColumn: MonthStart
+
+	column WeekStart
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		summarizeBy: none
+		sourceColumn: WeekStart
+
+	column ISOWeek
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: ISOWeek
+
+	column DayOfMonth
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: DayOfMonth
+
+	column DayOfWeekNumber
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: DayOfWeekNumber
+
+	column DayName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: DayName
+		sortByColumn: DayOfWeekNumber
+
+	column DayShort
+		dataType: string
+		summarizeBy: none
+		sourceColumn: DayShort
+		sortByColumn: DayOfWeekNumber
+
+	column IsWeekend
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: IsWeekend
+
+	column InReportingWindow
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: InReportingWindow
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "DimDate.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Date", type date}, {"DateKey", Int64.Type}, {"Year", Int64.Type}, {"Quarter", Int64.Type}, {"QuarterLabel", type text}, {"MonthNumber", Int64.Type}, {"MonthName", type text}, {"MonthShort", type text}, {"YearMonth", type text}, {"YearMonthSort", Int64.Type}, {"MonthStart", type date}, {"WeekStart", type date}, {"ISOWeek", Int64.Type}, {"DayOfMonth", Int64.Type}, {"DayOfWeekNumber", Int64.Type}, {"DayName", type text}, {"DayShort", type text}, {"IsWeekend", type logical}, {"InReportingWindow", type logical}}, "en-US")
+				in
+				    Typed

@@ -1,0 +1,17 @@
+lens,segment,n,rate_pct
+age group,0-14,2157,5.42
+age group,15-29,1834,4.91
+age group,30-44,2857,6.76
+age group,45-59,3981,10.75
+age group,60-74,2922,11.81
+age group,75+,904,10.07
+days to readmission,0-3 days,169,
+days to readmission,15-30 days,313,
+days to readmission,31-90 days,574,
+days to readmission,4-7 days,348,
+days to readmission,8-14 days,434,
+discharge type,Discharged Home,13295,8.30
+discharge type,Discharged Home with Follow-up,1050,9.90
+discharge type,Left Against Medical Advice,310,18.06
+index discharge on weekend,Weekday,11517,8.54
+index discharge on weekend,Weekend,3138,8.92

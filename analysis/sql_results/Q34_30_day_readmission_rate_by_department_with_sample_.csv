@@ -1,0 +1,11 @@
+department_name,eligible_discharges,readmissions_30d,readmission_rate_pct,avg_index_los,rate_rank
+Cardiology,2088,347,16.62,4.9,1
+Pulmonology,895,139,15.53,6.4,2
+Oncology,709,103,14.53,5.6,3
+General Medicine,2420,248,10.25,5.9,4
+Neurology,725,74,10.21,7.0,5
+Critical Care (ICU),823,46,5.59,7.2,6
+Pediatrics,1732,93,5.37,3.1,7
+General Surgery,2254,108,4.79,3.9,8
+Orthopedics,1204,45,3.74,6.3,9
+Obstetrics & Gynecology,1805,61,3.38,3.3,10

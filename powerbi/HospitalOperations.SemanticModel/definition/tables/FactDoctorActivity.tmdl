@@ -1,0 +1,60 @@
+table FactDoctorActivity
+
+	column ActivityID
+		dataType: string
+		isKey
+		isHidden
+		summarizeBy: none
+		sourceColumn: ActivityID
+
+	column DoctorID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: DoctorID
+
+	column DepartmentID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+	column ActivityDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		summarizeBy: none
+		sourceColumn: ActivityDate
+
+	column ScheduledHours
+		dataType: double
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: ScheduledHours
+
+	column ConsultationHours
+		dataType: double
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: ConsultationHours
+
+	column PatientsAttended
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: PatientsAttended
+
+	column InReportingWindow
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: InReportingWindow
+
+	partition FactDoctorActivity = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "FactDoctorActivity.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"ActivityID", type text}, {"DoctorID", type text}, {"DepartmentID", type text}, {"ActivityDate", type date}, {"ScheduledHours", type number}, {"ConsultationHours", type number}, {"PatientsAttended", Int64.Type}, {"InReportingWindow", type logical}}, "en-US")
+				in
+				    Typed

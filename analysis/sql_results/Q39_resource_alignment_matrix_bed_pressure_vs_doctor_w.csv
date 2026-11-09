@@ -1,0 +1,11 @@
+department_name,bed_occupancy,doctor_utilization,alos_days,alignment_segment
+General Medicine,0.861,0.781,5.85,"B. Bed pressure, doctors have headroom -> flow/discharge focus"
+Cardiology,0.838,0.828,4.85,D. Balanced / monitor
+Critical Care (ICU),0.834,0.828,6.89,D. Balanced / monitor
+Pulmonology,0.821,0.864,6.39,"C. Doctor pressure, beds have headroom -> staffing focus"
+Neurology,0.736,0.691,6.84,D. Balanced / monitor
+Orthopedics,0.653,0.806,6.29,D. Balanced / monitor
+General Surgery,0.606,0.842,3.89,D. Balanced / monitor
+Oncology,0.595,0.629,5.56,D. Balanced / monitor
+Obstetrics & Gynecology,0.564,0.748,3.31,D. Balanced / monitor
+Pediatrics,0.523,0.757,3.13,D. Balanced / monitor

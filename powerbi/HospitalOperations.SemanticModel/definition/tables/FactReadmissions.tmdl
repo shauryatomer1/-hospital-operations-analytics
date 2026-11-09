@@ -1,0 +1,71 @@
+table FactReadmissions
+
+	column ReadmissionID
+		dataType: string
+		isKey
+		isHidden
+		summarizeBy: none
+		sourceColumn: ReadmissionID
+
+	column PatientID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: PatientID
+
+	column OriginalAdmissionID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: OriginalAdmissionID
+
+	column ReadmissionAdmissionID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: ReadmissionAdmissionID
+
+	column DaysBetweenAdmissions
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: DaysBetweenAdmissions
+
+	column IndexDepartmentID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: IndexDepartmentID
+
+	column ReadmitDepartmentID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: ReadmitDepartmentID
+
+	column IndexDischargeDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		summarizeBy: none
+		sourceColumn: IndexDischargeDate
+
+	column ReadmitAdmissionDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		summarizeBy: none
+		sourceColumn: ReadmitAdmissionDate
+
+	column Within30Days
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: Within30Days
+
+	partition FactReadmissions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "FactReadmissions.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"ReadmissionID", type text}, {"PatientID", type text}, {"OriginalAdmissionID", type text}, {"ReadmissionAdmissionID", type text}, {"DaysBetweenAdmissions", Int64.Type}, {"IndexDepartmentID", type text}, {"ReadmitDepartmentID", type text}, {"IndexDischargeDate", type date}, {"ReadmitAdmissionDate", type date}, {"Within30Days", type logical}}, "en-US")
+				in
+				    Typed

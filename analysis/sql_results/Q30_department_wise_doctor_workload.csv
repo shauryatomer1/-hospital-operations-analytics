@@ -1,0 +1,12 @@
+department_name,doctors,scheduled_hours,consultation_hours,utilization_rate,patients_per_doctor_day,avg_shift_hours,saturated_days_pct
+Pulmonology,3,21512.00,18577.53,0.8636,25.9,8.00,49.4
+General Surgery,6,31717.00,26693.64,0.8416,23.3,7.38,44.8
+Critical Care (ICU),5,29590.50,24504.45,0.8281,9.5,7.65,53.7
+Cardiology,6,32979.00,27302.83,0.8279,20.4,7.41,59.5
+Emergency Medicine,10,55445.00,45822.83,0.8265,24.7,7.46,65.8
+Orthopedics,5,30922.00,24925.64,0.8061,24.7,7.66,36.2
+General Medicine,7,45232.00,35321.42,0.7809,26.0,7.77,56.0
+Pediatrics,5,29664.50,22451.96,0.7569,24.9,7.66,45.9
+Obstetrics & Gynecology,5,24707.50,18483.53,0.7481,16.2,7.22,37.1
+Neurology,3,16557.00,11434.11,0.6906,14.0,7.40,14.1
+Oncology,3,15323.00,9637.74,0.6290,11.1,7.36,7.5

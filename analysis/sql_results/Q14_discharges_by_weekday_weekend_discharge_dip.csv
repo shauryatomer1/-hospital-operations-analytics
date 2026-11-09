@@ -1,0 +1,8 @@
+weekday,iso_dow,discharges,share_pct,index_vs_average
+Mon,1,3558,22.5,1.57
+Tue,2,2043,12.9,0.90
+Wed,3,2090,13.2,0.92
+Thu,4,2248,14.2,0.99
+Fri,5,2472,15.6,1.09
+Sat,6,1932,12.2,0.85
+Sun,7,1500,9.5,0.66

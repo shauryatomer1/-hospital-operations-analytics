@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "0607dd731882f9348539",
+  "position": {
+    "x": 856,
+    "y": 414,
+    "width": 408,
+    "height": 268,
+    "z": 900,
+    "tabOrder": 900
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Context: high readmission may reflect chronic case-mix (cardiology, pulmonology, oncology); high volume is demand, not inefficiency. Utilisation counts consultation hours only (a proxy) and must not be used for individual appraisal. Use the denominators (Eligible Discharges) before comparing rates.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#51606F"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {},
+    "drillFilterOtherVisuals": true
+  }
+}

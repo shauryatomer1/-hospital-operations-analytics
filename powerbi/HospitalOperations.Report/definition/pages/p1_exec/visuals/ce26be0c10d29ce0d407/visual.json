@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "ce26be0c10d29ce0d407",
+  "position": {
+    "x": 940,
+    "y": 222,
+    "width": 324,
+    "height": 220,
+    "z": 1500,
+    "tabOrder": 1500
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactAdmissions"
+                    }
+                  },
+                  "Property": "AdmissionType"
+                }
+              },
+              "queryRef": "FactAdmissions.AdmissionType",
+              "nativeQueryRef": "AdmissionType",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Admissions"
+                }
+              },
+              "queryRef": "_Measures.Total Admissions",
+              "nativeQueryRef": "Total Admissions",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Admission type mix'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

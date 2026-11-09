@@ -1,0 +1,9 @@
+employment_type,shift,doctors,utilization_rate,patients_per_doctor_day
+Full-Time,Evening,9,0.8010,24.7
+Full-Time,Morning,13,0.8027,21.8
+Full-Time,Night,8,0.8053,21.1
+Full-Time,Rotational,13,0.7840,22.8
+Part-Time,Evening,3,0.7396,15.1
+Part-Time,Morning,6,0.7638,12.9
+Visiting Consultant,Evening,1,0.7192,7.6
+Visiting Consultant,Morning,5,0.8159,9.2

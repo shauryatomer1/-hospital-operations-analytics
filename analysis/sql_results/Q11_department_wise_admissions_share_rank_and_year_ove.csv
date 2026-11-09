@@ -1,0 +1,11 @@
+department_name,admissions,share_pct,volume_rank,adm_2023,adm_2024,adm_2025,growth_2023_to_2025_pct
+General Medicine,2582,16.3,1,836,849,897,7.3
+General Surgery,2386,15.0,2,756,809,821,8.6
+Cardiology,2270,14.3,3,716,797,757,5.7
+Obstetrics & Gynecology,1867,11.8,4,618,615,634,2.6
+Pediatrics,1832,11.5,5,554,619,659,19.0
+Orthopedics,1255,7.9,6,399,430,426,6.8
+Critical Care (ICU),1054,6.6,7,324,375,355,9.6
+Pulmonology,984,6.2,8,314,320,350,11.5
+Oncology,821,5.2,9,255,285,281,10.2
+Neurology,814,5.1,10,259,266,289,11.6

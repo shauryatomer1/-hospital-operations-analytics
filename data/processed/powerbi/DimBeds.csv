@@ -1,0 +1,107 @@
+BedID,DepartmentID,BedType,BedStatus,IsStaffed
+B001,D02,General Ward,Occupied,True
+B002,D02,General Ward,Occupied,True
+B003,D02,General Ward,Occupied,True
+B004,D02,General Ward,Occupied,True
+B005,D02,General Ward,Occupied,True
+B006,D02,General Ward,Occupied,True
+B007,D02,General Ward,Occupied,True
+B008,D02,General Ward,Occupied,True
+B009,D02,Semi-Private,Occupied,True
+B010,D02,Semi-Private,Occupied,True
+B011,D02,Semi-Private,Occupied,True
+B012,D02,Semi-Private,Occupied,True
+B013,D02,Semi-Private,Occupied,True
+B014,D02,Private,Maintenance,True
+B015,D02,Private,Occupied,True
+B016,D02,Private,Occupied,True
+B017,D03,HDU,Occupied,True
+B018,D03,HDU,Occupied,True
+B019,D03,HDU,Available,True
+B020,D03,HDU,Available,True
+B021,D03,General Ward,Occupied,True
+B022,D03,General Ward,Occupied,True
+B023,D03,General Ward,Occupied,True
+B024,D03,General Ward,Occupied,True
+B025,D03,General Ward,Available,True
+B026,D03,Private,Occupied,True
+B027,D03,Private,Occupied,True
+B028,D03,Private,Occupied,True
+B029,D04,General Ward,Occupied,True
+B030,D04,General Ward,Available,True
+B031,D04,General Ward,Occupied,True
+B032,D04,General Ward,Occupied,True
+B033,D04,General Ward,Occupied,True
+B034,D04,General Ward,Occupied,True
+B035,D04,Semi-Private,Occupied,True
+B036,D04,Semi-Private,Available,True
+B037,D04,Semi-Private,Available,True
+B038,D04,Semi-Private,Available,True
+B039,D04,Private,Available,True
+B040,D04,Private,Closed,False
+B041,D05,General Ward,Maintenance,True
+B042,D05,General Ward,Occupied,True
+B043,D05,General Ward,Available,True
+B044,D05,General Ward,Available,True
+B045,D05,General Ward,Occupied,True
+B046,D05,General Ward,Available,True
+B047,D05,General Ward,Occupied,True
+B048,D05,Semi-Private,Occupied,True
+B049,D05,Semi-Private,Occupied,True
+B050,D05,Semi-Private,Occupied,True
+B051,D05,Semi-Private,Available,True
+B052,D05,Private,Available,True
+B053,D05,Private,Occupied,True
+B054,D05,Private,Occupied,True
+B055,D06,Pediatric Ward,Occupied,True
+B056,D06,Pediatric Ward,Maintenance,True
+B057,D06,Pediatric Ward,Occupied,True
+B058,D06,Pediatric Ward,Occupied,True
+B059,D06,Pediatric Ward,Available,True
+B060,D06,Pediatric Ward,Occupied,True
+B061,D06,Pediatric Ward,Available,True
+B062,D06,Pediatric Ward,Occupied,True
+B063,D06,Isolation,Available,True
+B064,D06,Isolation,Occupied,True
+B065,D07,Maternity,Occupied,True
+B066,D07,Maternity,Occupied,True
+B067,D07,Maternity,Occupied,True
+B068,D07,Maternity,Occupied,True
+B069,D07,Maternity,Occupied,True
+B070,D07,Maternity,Occupied,True
+B071,D07,Semi-Private,Occupied,True
+B072,D07,Semi-Private,Occupied,True
+B073,D07,Private,Occupied,True
+B074,D07,Private,Occupied,True
+B075,D08,HDU,Occupied,True
+B076,D08,HDU,Occupied,True
+B077,D08,General Ward,Occupied,True
+B078,D08,General Ward,Occupied,True
+B079,D08,General Ward,Available,True
+B080,D08,General Ward,Closed,False
+B081,D08,Private,Available,True
+B082,D08,Private,Available,True
+B083,D09,General Ward,Available,True
+B084,D09,General Ward,Available,True
+B085,D09,General Ward,Occupied,True
+B086,D09,General Ward,Occupied,True
+B087,D09,Semi-Private,Available,True
+B088,D09,Semi-Private,Closed,False
+B089,D09,Private,Available,True
+B090,D09,Private,Available,True
+B091,D10,General Ward,Occupied,True
+B092,D10,General Ward,Occupied,True
+B093,D10,General Ward,Occupied,True
+B094,D10,General Ward,Occupied,True
+B095,D10,Isolation,Occupied,True
+B096,D10,Isolation,Closed,False
+B097,D10,HDU,Occupied,True
+B098,D10,HDU,Occupied,True
+B099,D11,ICU,Occupied,True
+B100,D11,ICU,Occupied,True
+B101,D11,ICU,Occupied,True
+B102,D11,ICU,Occupied,True
+B103,D11,ICU,Occupied,True
+B104,D11,ICU,Occupied,True
+B105,D11,ICU,Occupied,True
+B106,D11,ICU,Occupied,True

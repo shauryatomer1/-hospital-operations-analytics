@@ -1,0 +1,51 @@
+table DimPatients
+
+	column PatientID
+		dataType: string
+		isKey
+		isHidden
+		summarizeBy: none
+		sourceColumn: PatientID
+
+	column Age
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Age
+
+	column AgeGroup
+		dataType: string
+		summarizeBy: none
+		sourceColumn: AgeGroup
+
+	column Gender
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Gender
+
+	column City
+		dataType: string
+		summarizeBy: none
+		sourceColumn: City
+
+	column PatientType
+		dataType: string
+		summarizeBy: none
+		sourceColumn: PatientType
+
+	column RegistrationDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		isHidden
+		summarizeBy: none
+		sourceColumn: RegistrationDate
+
+	partition DimPatients = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "DimPatients.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"PatientID", type text}, {"Age", Int64.Type}, {"AgeGroup", type text}, {"Gender", type text}, {"City", type text}, {"PatientType", type text}, {"RegistrationDate", type date}}, "en-US")
+				in
+				    Typed

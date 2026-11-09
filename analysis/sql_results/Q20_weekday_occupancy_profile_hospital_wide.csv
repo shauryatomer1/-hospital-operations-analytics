@@ -1,0 +1,8 @@
+weekday,iso_day_of_week,bed_occupancy_rate,avg_occupied_beds_per_dept_day
+Mon,1,0.6629,6.8
+Tue,2,0.6961,7.1
+Wed,3,0.7214,7.4
+Thu,4,0.7350,7.5
+Fri,5,0.7301,7.4
+Sat,6,0.7090,7.2
+Sun,7,0.6940,7.1

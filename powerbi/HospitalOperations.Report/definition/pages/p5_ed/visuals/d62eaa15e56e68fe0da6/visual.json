@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "d62eaa15e56e68fe0da6",
+  "position": {
+    "x": 436,
+    "y": 222,
+    "width": 408,
+    "height": 230,
+    "z": 1300,
+    "tabOrder": 1300
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactEmergencyVisits"
+                    }
+                  },
+                  "Property": "ArrivalHour"
+                }
+              },
+              "queryRef": "FactEmergencyVisits.ArrivalHour",
+              "nativeQueryRef": "ArrivalHour",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg ED Wait (min)"
+                }
+              },
+              "queryRef": "_Measures.Avg ED Wait (min)",
+              "nativeQueryRef": "Avg ED Wait (min)",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average wait by arrival hour (min)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

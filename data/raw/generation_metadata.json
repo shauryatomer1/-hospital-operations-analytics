@@ -1,0 +1,58 @@
+{
+  "seed": 42,
+  "window": [
+    "2023-01-01",
+    "2025-12-31"
+  ],
+  "rows": {
+    "patients": 27007,
+    "admissions": 16314,
+    "departments": 11,
+    "doctors": 58,
+    "beds": 106,
+    "emergency_visits": 35719,
+    "doctor_activity": 44222,
+    "readmissions": 1866
+  },
+  "injected_defects": [
+    {
+      "field": "patients.gender",
+      "issue": "non-standard gender codes (M/F/male/FEMALE)",
+      "rows": 405
+    },
+    {
+      "field": "patients.city",
+      "issue": "leading/trailing whitespace and inconsistent case in city",
+      "rows": 270
+    },
+    {
+      "field": "doctor_activity",
+      "issue": "exact duplicate rows (same activity_id)",
+      "rows": 8
+    },
+    {
+      "field": "emergency_visits.consultation_datetime",
+      "issue": "consultation timestamp earlier than arrival (negative wait)",
+      "rows": 6
+    },
+    {
+      "field": "admissions.admission_date/discharge_date",
+      "issue": "dates entered in swapped order (discharge < admission)",
+      "rows": 4
+    },
+    {
+      "field": "admissions.diagnosis_category",
+      "issue": "missing diagnosis category on discharged admissions",
+      "rows": 15
+    }
+  ],
+  "scenarios": [
+    "S1 monsoon/viral surge 2024-08-05..2024-09-25",
+    "S2 respiratory surge 2025-01-06..2025-02-20",
+    "S3 OT maintenance 2024-03-11..2024-03-24",
+    "S4 ED staffing gap 2024-09-01..2024-11-30",
+    "S5 weekend discharge dip",
+    "S6 ED handover/evening peaks",
+    "S7 uneven doctor pools"
+  ]
+}

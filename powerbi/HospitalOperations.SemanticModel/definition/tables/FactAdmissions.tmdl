@@ -1,0 +1,158 @@
+table FactAdmissions
+
+	column AdmissionID
+		dataType: string
+		isKey
+		isHidden
+		summarizeBy: none
+		sourceColumn: AdmissionID
+
+	column PatientID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: PatientID
+
+	column AdmissionDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		summarizeBy: none
+		sourceColumn: AdmissionDate
+
+	column DischargeDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		summarizeBy: none
+		sourceColumn: DischargeDate
+
+	column AdmissionType
+		dataType: string
+		summarizeBy: none
+		sourceColumn: AdmissionType
+
+	column DepartmentID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+	column DoctorID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: DoctorID
+
+	column BedID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: BedID
+
+	column DiagnosisCategory
+		dataType: string
+		summarizeBy: none
+		sourceColumn: DiagnosisCategory
+
+	column AdmissionStatus
+		dataType: string
+		summarizeBy: none
+		sourceColumn: AdmissionStatus
+
+	column DischargeType
+		dataType: string
+		summarizeBy: none
+		sourceColumn: DischargeType
+
+	column IsCompleted
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: IsCompleted
+
+	column IsCancelled
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: IsCancelled
+
+	column IsOpenStay
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: IsOpenStay
+
+	column IsAdmission
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: IsAdmission
+
+	column LOSDays
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: LOSDays
+
+	column BedReleaseDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		isHidden
+		summarizeBy: none
+		sourceColumn: BedReleaseDate
+
+	column InReportingWindow
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: InReportingWindow
+
+	column AdmissionSeq
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: AdmissionSeq
+
+	column IsReadmissionEligible
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: IsReadmissionEligible
+
+	column FollowupComplete
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: FollowupComplete
+
+	column BedType
+		dataType: string
+		summarizeBy: none
+		sourceColumn: BedType
+
+	column Readmitted30d
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: Readmitted30d
+
+	column IsUnplannedReadmission30d
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: IsUnplannedReadmission30d
+
+	column FromED
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: FromED
+
+	partition FactAdmissions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "FactAdmissions.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"AdmissionID", type text}, {"PatientID", type text}, {"AdmissionDate", type date}, {"DischargeDate", type date}, {"AdmissionType", type text}, {"DepartmentID", type text}, {"DoctorID", type text}, {"BedID", type text}, {"DiagnosisCategory", type text}, {"AdmissionStatus", type text}, {"DischargeType", type text}, {"IsCompleted", type logical}, {"IsCancelled", type logical}, {"IsOpenStay", type logical}, {"IsAdmission", type logical}, {"LOSDays", Int64.Type}, {"BedReleaseDate", type date}, {"InReportingWindow", type logical}, {"AdmissionSeq", Int64.Type}, {"IsReadmissionEligible", type logical}, {"FollowupComplete", type logical}, {"BedType", type text}, {"Readmitted30d", type logical}, {"IsUnplannedReadmission30d", type logical}, {"FromED", type logical}}, "en-US")
+				in
+				    Typed

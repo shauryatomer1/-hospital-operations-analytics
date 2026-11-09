@@ -1,0 +1,12 @@
+DepartmentID,DepartmentName,DepartmentCategory,DepartmentCapacity,StaffedBeds,HasInpatientBeds
+D01,Emergency Medicine,Emergency,0,0,False
+D02,General Medicine,Medical,16,16,True
+D03,Cardiology,Medical,12,12,True
+D04,Orthopedics,Surgical,12,11,True
+D05,General Surgery,Surgical,14,14,True
+D06,Pediatrics,Maternal & Child,10,10,True
+D07,Obstetrics & Gynecology,Maternal & Child,10,10,True
+D08,Neurology,Medical,8,7,True
+D09,Oncology,Medical,8,7,True
+D10,Pulmonology,Medical,8,7,True
+D11,Critical Care (ICU),Critical Care,8,8,True

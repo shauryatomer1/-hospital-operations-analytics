@@ -1,0 +1,388 @@
+table _Measures
+
+	measure 'Days in Period' = ```
+			COUNTROWS ( DimDate )
+			```
+		formatString: #,0
+		displayFolder: 0 Support
+
+	measure 'Staffed Beds' = ```
+			CALCULATE ( COUNTROWS ( DimBeds ), DimBeds[IsStaffed] = TRUE () )
+			```
+		formatString: #,0
+		displayFolder: 0 Support
+
+	measure 'Active Doctors' = ```
+			DISTINCTCOUNT ( FactDoctorActivity[DoctorID] )
+			```
+		formatString: #,0
+		displayFolder: 0 Support
+
+	measure 'Total Admissions' = ```
+			CALCULATE ( COUNTROWS ( FactAdmissions ), FactAdmissions[IsAdmission] = TRUE () )
+			```
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure 'Cancelled Admission Requests' = ```
+			CALCULATE ( COUNTROWS ( FactAdmissions ), FactAdmissions[IsCancelled] = TRUE () )
+			```
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure 'Total Unique Patients' = ```
+			CALCULATE ( DISTINCTCOUNT ( FactAdmissions[PatientID] ), FactAdmissions[IsAdmission] = TRUE () )
+			```
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure 'Total Discharges' = ```
+			CALCULATE (
+			    COUNTROWS ( FactAdmissions ),
+			    FactAdmissions[IsCompleted] = TRUE (),
+			    USERELATIONSHIP ( DimDate[Date], FactAdmissions[DischargeDate] )
+			)
+			```
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure ALOS = ```
+			CALCULATE (
+			    AVERAGE ( FactAdmissions[LOSDays] ),
+			    FactAdmissions[IsCompleted] = TRUE (),
+			    USERELATIONSHIP ( DimDate[Date], FactAdmissions[DischargeDate] )
+			)
+			```
+		formatString: 0.00
+		displayFolder: 2 Efficiency
+
+	measure 'Open Stays at Snapshot' = ```
+			CALCULATE ( COUNTROWS ( FactAdmissions ), FactAdmissions[IsOpenStay] = TRUE () )
+			```
+		formatString: #,0
+		displayFolder: 2 Efficiency
+
+	measure 'Occupied Bed-Days' = ```
+			SUMX (
+			    VALUES ( DimDate[Date] ),
+			    VAR _d = DimDate[Date]
+			    RETURN
+			        CALCULATE (
+			            COUNTROWS ( FactAdmissions ),
+			            FactAdmissions[IsAdmission] = TRUE (),
+			            FactAdmissions[AdmissionDate] <= _d,
+			            FactAdmissions[BedReleaseDate] > _d,
+			            REMOVEFILTERS ( DimDate )
+			        )
+			)
+			```
+		formatString: #,0
+		displayFolder: 3 Beds
+
+	measure 'Available Bed-Days' = ```
+			[Staffed Beds] * [Days in Period]
+			```
+		formatString: #,0
+		displayFolder: 3 Beds
+
+	measure 'Bed Occupancy Rate' = ```
+			DIVIDE ( [Occupied Bed-Days], [Available Bed-Days] )
+			```
+		formatString: 0.0%
+		displayFolder: 3 Beds
+
+	measure 'Avg Daily Census' = ```
+			DIVIDE ( [Occupied Bed-Days], [Days in Period] )
+			```
+		formatString: 0.0
+		displayFolder: 3 Beds
+
+	measure 'Available Bed Count' = ```
+			[Staffed Beds] - [Avg Daily Census]
+			```
+		formatString: 0.0
+		displayFolder: 3 Beds
+
+	measure 'Beds Available Now (snapshot)' = ```
+			CALCULATE ( COUNTROWS ( DimBeds ), DimBeds[BedStatus] = "Available" )
+			```
+		formatString: #,0
+		displayFolder: 3 Beds
+
+	measure 'ED Visits' = ```
+			COUNTROWS ( FactEmergencyVisits )
+			```
+		formatString: #,0
+		displayFolder: 4 Emergency
+
+	measure 'Avg ED Wait (min)' = ```
+			AVERAGE ( FactEmergencyVisits[WaitMinutes] )
+			```
+		formatString: 0.0
+		displayFolder: 4 Emergency
+
+	measure 'Median ED Wait (min)' = ```
+			MEDIAN ( FactEmergencyVisits[WaitMinutes] )
+			```
+		formatString: 0.0
+		displayFolder: 4 Emergency
+
+	measure 'ED Turnaround (min)' = ```
+			AVERAGE ( FactEmergencyVisits[TurnaroundMinutes] )
+			```
+		formatString: 0.0
+		displayFolder: 4 Emergency
+
+	measure 'ED Turnaround - Admitted (min)' = ```
+			CALCULATE ( AVERAGE ( FactEmergencyVisits[TurnaroundMinutes] ), FactEmergencyVisits[IsAdmitted] = TRUE () )
+			```
+		formatString: 0.0
+		displayFolder: 4 Emergency
+
+	measure 'LWBS Rate' = ```
+			DIVIDE ( CALCULATE ( COUNTROWS ( FactEmergencyVisits ), FactEmergencyVisits[IsLWBS] = TRUE () ), [ED Visits] )
+			```
+		formatString: 0.0%
+		displayFolder: 4 Emergency
+
+	measure 'ED Admit Rate' = ```
+			DIVIDE ( CALCULATE ( [ED Visits], FactEmergencyVisits[IsAdmitted] = TRUE () ), [ED Visits] )
+			```
+		formatString: 0.0%
+		displayFolder: 4 Emergency
+
+	measure '% Seen within Target' = ```
+			DIVIDE (
+			    CALCULATE ( COUNTROWS ( FactEmergencyVisits ), FactEmergencyVisits[MetWaitTarget] = 1 ),
+			    CALCULATE ( COUNTROWS ( FactEmergencyVisits ), NOT ISBLANK ( FactEmergencyVisits[MetWaitTarget] ) )
+			)
+			```
+		formatString: 0.0%
+		displayFolder: 4 Emergency
+
+	measure 'Avg Wait Hour Index' = ```
+			DIVIDE ( [Avg ED Wait (min)], CALCULATE ( [Avg ED Wait (min)], REMOVEFILTERS ( FactEmergencyVisits[ArrivalHour] ) ) )
+			```
+		formatString: 0.00
+		displayFolder: 4 Emergency
+
+	measure 'Eligible Discharges' = ```
+			CALCULATE (
+			    COUNTROWS ( FactAdmissions ),
+			    FactAdmissions[IsReadmissionEligible] = TRUE (),
+			    FactAdmissions[FollowupComplete] = TRUE (),
+			    USERELATIONSHIP ( DimDate[Date], FactAdmissions[DischargeDate] )
+			)
+			```
+		formatString: #,0
+		displayFolder: 5 Quality
+
+	measure 'Readmissions 30d' = ```
+			CALCULATE ( [Eligible Discharges], FactAdmissions[Readmitted30d] = TRUE () )
+			```
+		formatString: #,0
+		displayFolder: 5 Quality
+
+	measure '30-Day Readmission Rate' = ```
+			DIVIDE ( [Readmissions 30d], [Eligible Discharges] )
+			```
+		formatString: 0.0%
+		displayFolder: 5 Quality
+
+	measure 'Readmission Flow Count' = ```
+			CALCULATE ( COUNTROWS ( FactReadmissions ), FactReadmissions[Within30Days] = TRUE () )
+			```
+		formatString: #,0
+		displayFolder: 5 Quality
+
+	measure 'Readmission Flow Count (to dept)' = ```
+			CALCULATE (
+			    COUNTROWS ( FactReadmissions ),
+			    FactReadmissions[Within30Days] = TRUE (),
+			    USERELATIONSHIP ( DimDepartments[DepartmentID], FactReadmissions[ReadmitDepartmentID] )
+			)
+			```
+		formatString: #,0
+		displayFolder: 5 Quality
+
+	measure 'Doctor Utilization Rate' = ```
+			DIVIDE ( SUM ( FactDoctorActivity[ConsultationHours] ), SUM ( FactDoctorActivity[ScheduledHours] ) )
+			```
+		formatString: 0.0%
+		displayFolder: 6 Resources
+
+	measure 'Saturated Doctor-Days %' = ```
+			DIVIDE (
+			    COUNTROWS ( FILTER ( FactDoctorActivity, FactDoctorActivity[ConsultationHours] >= 0.95 * FactDoctorActivity[ScheduledHours] ) ),
+			    COUNTROWS ( FactDoctorActivity )
+			)
+			```
+		formatString: 0.0%
+		displayFolder: 6 Resources
+
+	measure 'Patients per Doctor' = ```
+			DIVIDE ( [Total Unique Patients], [Active Doctors] )
+			```
+		formatString: 0.0
+		displayFolder: 6 Resources
+
+	measure 'Patients Attended per Doctor-Day' = ```
+			DIVIDE ( SUM ( FactDoctorActivity[PatientsAttended] ), COUNTROWS ( FactDoctorActivity ) )
+			```
+		formatString: 0.0
+		displayFolder: 6 Resources
+
+	measure 'Prev Period Admissions' = ```
+			VAR _min = MIN ( DimDate[Date] )
+			VAR _max = MAX ( DimDate[Date] )
+			VAR _len = _max - _min + 1
+			RETURN
+			    CALCULATE (
+			        [Total Admissions],
+			        REMOVEFILTERS ( DimDate ),
+			        DATESBETWEEN ( DimDate[Date], _min - _len, _max - _len ),
+			        DimDate[InReportingWindow] = TRUE ()
+			    )
+			```
+		formatString: #,0
+		displayFolder: 7 Growth
+
+	measure 'Admission Growth Rate' = ```
+			DIVIDE ( [Total Admissions] - [Prev Period Admissions], [Prev Period Admissions] )
+			```
+		formatString: 0.0%
+		displayFolder: 7 Growth
+
+	measure 'Prev Period Discharges' = ```
+			VAR _min = MIN ( DimDate[Date] )
+			VAR _max = MAX ( DimDate[Date] )
+			VAR _len = _max - _min + 1
+			RETURN
+			    CALCULATE (
+			        [Total Discharges],
+			        REMOVEFILTERS ( DimDate ),
+			        DATESBETWEEN ( DimDate[Date], _min - _len, _max - _len ),
+			        DimDate[InReportingWindow] = TRUE ()
+			    )
+			```
+		formatString: #,0
+		displayFolder: 7 Growth
+
+	measure 'Discharge Growth Rate' = ```
+			DIVIDE ( [Total Discharges] - [Prev Period Discharges], [Prev Period Discharges] )
+			```
+		formatString: 0.0%
+		displayFolder: 7 Growth
+
+	measure 'Discharges Net Flow' = ```
+			[Total Admissions] - [Total Discharges]
+			```
+		formatString: #,0
+		displayFolder: 7 Growth
+
+	measure 'Cancellation Rate' = ```
+			DIVIDE ( [Cancelled Admission Requests], [Total Admissions] + [Cancelled Admission Requests] )
+			```
+		formatString: 0.0%
+		displayFolder: 7 Growth
+
+	measure 'Peak Admission Day' = ```
+			VAR _t = ADDCOLUMNS ( VALUES ( DimDate[Date] ), "Adm", [Total Admissions] )
+			VAR _mx = MAXX ( _t, [Adm] )
+			RETURN
+			    MINX ( FILTER ( _t, [Adm] = _mx ), DimDate[Date] )
+			```
+		formatString: dd-mmm-yyyy
+		displayFolder: 8 Peaks
+
+	measure 'Peak Day Admissions' = ```
+			MAXX ( ADDCOLUMNS ( VALUES ( DimDate[Date] ), "Adm", [Total Admissions] ), [Adm] )
+			```
+		formatString: #,0
+		displayFolder: 8 Peaks
+
+	measure 'Peak Weekday' = ```
+			VAR _t = ADDCOLUMNS ( VALUES ( DimDate[DayName] ), "Adm", [Total Admissions] )
+			RETURN
+			    MAXX ( TOPN ( 1, _t, [Adm], DESC ), DimDate[DayName] )
+			```
+		displayFolder: 8 Peaks
+
+	measure 'Dept Load Share %' = ```
+			DIVIDE ( [Occupied Bed-Days], CALCULATE ( [Occupied Bed-Days], ALLSELECTED ( DimDepartments ) ) )
+			```
+		formatString: 0.0%
+		displayFolder: 9 Department
+
+	measure 'Dept Admission Share %' = ```
+			DIVIDE ( [Total Admissions], CALCULATE ( [Total Admissions], ALLSELECTED ( DimDepartments ) ) )
+			```
+		formatString: 0.0%
+		displayFolder: 9 Department
+
+	measure 'Avg Daily Admissions' = ```
+			DIVIDE ( [Total Admissions], [Days in Period] )
+			```
+		formatString: 0.0
+		displayFolder: 1 Volume
+
+	measure 'Emergency Admission %' = ```
+			DIVIDE ( CALCULATE ( [Total Admissions], FactAdmissions[AdmissionType] = "Emergency" ), [Total Admissions] )
+			```
+		formatString: 0.0%
+		displayFolder: 1 Volume
+
+	measure 'BOR High Threshold Value' = ```
+			SELECTEDVALUE ( 'BOR High Threshold'[BOR High Threshold], 0.85 )
+			```
+		formatString: 0.0%
+		displayFolder: A Thresholds
+
+	measure 'BOR Critical Threshold Value' = ```
+			SELECTEDVALUE ( 'BOR Critical Threshold'[BOR Critical Threshold], 0.95 )
+			```
+		formatString: 0.0%
+		displayFolder: A Thresholds
+
+	measure 'BOR Status' = ```
+			SWITCH (
+			    TRUE (),
+			    ISBLANK ( [Bed Occupancy Rate] ), BLANK (),
+			    [Bed Occupancy Rate] >= [BOR Critical Threshold Value], "Critical",
+			    [Bed Occupancy Rate] >= [BOR High Threshold Value], "High",
+			    "Normal"
+			)
+			```
+		displayFolder: A Thresholds
+
+	measure 'BOR Color' = ```
+			SWITCH ( [BOR Status], "Critical", "#C0392B", "High", "#E6A117", "Normal", "#2E8B57", "#B8C2CC" )
+			```
+		displayFolder: A Thresholds
+
+	measure 'Doctor Util Color' = ```
+			VAR u = [Doctor Utilization Rate]
+			RETURN
+			    SWITCH ( TRUE (), ISBLANK ( u ), "#B8C2CC", u >= 0.95, "#C0392B", u >= 0.85, "#E6A117", u < 0.55, "#7FB3D5", "#2E8B57" )
+			```
+		displayFolder: A Thresholds
+
+	measure 'KPI Delta Color' = ```
+			IF ( [Admission Growth Rate] >= 0, "#1A9E9A", "#1F5FA8" )
+			```
+		displayFolder: A Thresholds
+
+	measure 'Reporting Note' = ```
+			"Synthetic data. Thresholds are illustrative operational thresholds - set by hospital policy."
+			```
+		displayFolder: A Thresholds
+
+	column Dummy
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: [Dummy]
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW ( "Dummy", 1 )

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "2ce1095189f8a3c8a417",
+  "position": {
+    "x": 856,
+    "y": 222,
+    "width": 408,
+    "height": 230,
+    "z": 1400,
+    "tabOrder": 1400
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactEmergencyVisits"
+                    }
+                  },
+                  "Property": "TriageLabel"
+                }
+              },
+              "queryRef": "FactEmergencyVisits.TriageLabel",
+              "nativeQueryRef": "TriageLabel",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg ED Wait (min)"
+                }
+              },
+              "queryRef": "_Measures.Avg ED Wait (min)",
+              "nativeQueryRef": "Avg ED Wait (min)",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Wait by triage level (min)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

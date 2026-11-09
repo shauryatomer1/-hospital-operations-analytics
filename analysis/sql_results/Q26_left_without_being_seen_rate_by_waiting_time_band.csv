@@ -1,0 +1,6 @@
+metric,wait_band,visits
+LWBS (triage 3-5),n/a (never seen),792
+seen patients by wait band,1) <30 min,5718
+seen patients by wait band,2) 30-59 min,11408
+seen patients by wait band,3) 60-89 min,5920
+seen patients by wait band,4) 90+ min,4659

@@ -1,0 +1,5 @@
+occ_band,admitted_visits,avg_minutes_consult_to_ward,median_minutes,corr_all_days
+1) <70%,4275,553,287,0.096
+2) 70-79%,4293,674,310,0.096
+3) 80-84%,846,714,310,0.096
+4) 85%+,377,798,316,0.096

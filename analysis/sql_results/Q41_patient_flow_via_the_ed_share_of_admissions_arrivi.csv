@@ -1,0 +1,11 @@
+department_name,admissions,via_ed,via_ed_pct,avg_consult_to_ward_min,avg_ed_los_min
+Critical Care (ICU),1054,884,83.9,935,954
+General Medicine,2582,2010,77.8,895,933
+Pediatrics,1832,1365,74.5,307,345
+Pulmonology,984,712,72.4,870,911
+Cardiology,2270,1497,65.9,854,893
+Neurology,814,480,59.0,635,673
+General Surgery,2386,1187,49.7,316,354
+Obstetrics & Gynecology,1867,913,48.9,291,329
+Orthopedics,1255,510,40.6,379,418
+Oncology,821,235,28.6,347,386

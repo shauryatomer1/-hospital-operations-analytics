@@ -1,0 +1,20 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+
+ref table DimDate
+ref table DimPatients
+ref table DimDepartments
+ref table DimDoctors
+ref table DimBeds
+ref table FactAdmissions
+ref table FactEmergencyVisits
+ref table FactDoctorActivity
+ref table FactReadmissions
+ref table _Measures
+ref table 'BOR High Threshold'
+ref table 'BOR Critical Threshold'
+
+ref expression DataFolder

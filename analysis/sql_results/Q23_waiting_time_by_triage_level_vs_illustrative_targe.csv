@@ -1,0 +1,6 @@
+triage_label,seen_visits,target_min,avg_wait_min,median_wait_min,p90_wait_min,pct_within_target
+1 - Resuscitation,1294,5,3.3,2.4,6.8,81.9
+2 - Emergent,5888,15,18.1,15.4,31.9,48.3
+3 - Urgent,14279,30,49.6,42.1,88.3,28.5
+4 - Less Urgent,9634,60,68.2,57.7,122.0,52.5
+5 - Non-Urgent,3792,120,78.3,66.1,139.1,85.2

@@ -1,0 +1,11 @@
+department_name,admissions,emergency_pct,elective_pct,referral_pct
+Critical Care (ICU),1054,83.9,0.0,16.1
+General Medicine,2582,77.8,6.2,16.0
+Pediatrics,1832,74.5,8.5,17.0
+Pulmonology,984,72.4,8.1,19.5
+Cardiology,2270,65.9,13.7,20.4
+Neurology,814,59.0,15.4,25.7
+General Surgery,2386,49.7,41.0,9.2
+Obstetrics & Gynecology,1867,48.9,36.1,15.0
+Orthopedics,1255,40.6,45.7,13.7
+Oncology,821,28.6,42.3,29.1

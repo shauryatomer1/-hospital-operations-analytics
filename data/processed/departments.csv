@@ -1,0 +1,12 @@
+department_id,department_name,department_category,department_capacity
+D01,Emergency Medicine,Emergency,0
+D02,General Medicine,Medical,16
+D03,Cardiology,Medical,12
+D04,Orthopedics,Surgical,12
+D05,General Surgery,Surgical,14
+D06,Pediatrics,Maternal & Child,10
+D07,Obstetrics & Gynecology,Maternal & Child,10
+D08,Neurology,Medical,8
+D09,Oncology,Medical,8
+D10,Pulmonology,Medical,8
+D11,Critical Care (ICU),Critical Care,8

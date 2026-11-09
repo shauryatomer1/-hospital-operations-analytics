@@ -1,0 +1,8 @@
+weekday,admission_iso_dow,emergency,elective,referral,total
+Mon,1,1683,830,546,3059
+Tue,2,1446,654,475,2575
+Wed,3,1401,649,446,2496
+Thu,4,1367,625,474,2466
+Fri,5,1388,544,462,2394
+Sat,6,1229,103,264,1596
+Sun,7,1279,0,0,1279

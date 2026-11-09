@@ -1,0 +1,44 @@
+table DimDoctors
+
+	column DoctorID
+		dataType: string
+		isKey
+		isHidden
+		summarizeBy: none
+		sourceColumn: DoctorID
+
+	column DoctorName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: DoctorName
+
+	column DepartmentID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+	column Specialization
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Specialization
+
+	column EmploymentType
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EmploymentType
+
+	column Shift
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Shift
+
+	partition DimDoctors = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "DimDoctors.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"DoctorID", type text}, {"DoctorName", type text}, {"DepartmentID", type text}, {"Specialization", type text}, {"EmploymentType", type text}, {"Shift", type text}}, "en-US")
+				in
+				    Typed
